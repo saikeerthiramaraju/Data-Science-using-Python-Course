@@ -1,0 +1,24 @@
+
+dfch=pd.read_csv("charity.csv") 
+#1
+avg_weeks= dfch[200:375]['weekslast'].mean()    
+avg_weeks
+#2
+avg_giftlast=dfch.loc[(dfch.mailsyear>=0.5)&(dfch.mailsyear<=1.5)]['giftlast'].mean()
+avg_giftlast
+#3
+dfch.columns[4]
+#4
+dfch['gift_per_mailing']=dfch['avggift']/dfch['mailsyear']  
+
+
+dfch1=pd.read_csv("charity1.csv") 
+#5
+result=dfch1.groupby(["uid","cause"])["gift"].mean()
+result
+
+#6
+format_result=result.reset_index() 
+
+#7
+
